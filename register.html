@@ -1,0 +1,182 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Бүртгүүлэх</title>
+    <!-- for header and footer of page -->
+    <script type="module" src="./components/header.js"></script>
+    <script type="module" src="./components/footer.js"></script>
+    <link rel="stylesheet" href="css/headerFooter.css" />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css"
+      integrity="sha512-SnH5WK+bZxgPHs44uWIX+LLJAJ9/2PkPKZ5QiAj6Ta86w+fsb2TkcmfRyVX3pBnMFcV7oQPJkl9QevSCWr3W6A=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+    />
+    <style>
+      :root {
+        --color-red: #de032a;
+        --color-white: white;
+        --color-bg-grey: rgb(245, 245, 245);
+        --color-text-grey: rgb(152, 152, 152);
+        --color-dark-grey: rgb(26, 26, 26);
+        --color-black: #000000;
+      }
+      * {
+        font-family: "Poppins", sans-serif;
+        margin: 0;
+        padding: 0;
+      }
+      #containerReg {
+        display: flex;
+        justify-content: center;
+        padding: 2rem;
+        & #main-left {
+          padding: 0 2rem;
+          display: flex;
+          flex-direction: column;
+          & h2 {
+            text-align: center;
+            margin-bottom: 1rem;
+          }
+          & input {
+            background-color: var(--color-bg-grey);
+            padding: 0.8rem;
+            border-radius: 5px;
+            border: none;
+          }
+          & label {
+            text-align: left;
+            margin-top: 1rem;
+            margin-bottom: 0.2rem;
+          }
+          & > p {
+            margin-top: 2rem;
+          }
+          & button {
+            margin: 1.5rem 3rem;
+            padding: 0.8rem;
+            background-color: var(--color-red);
+            border-radius: 5px;
+            border: none;
+            color: var(--color-white);
+          }
+        }
+        & #main-right {
+          img {
+            height: 40rem;
+          }
+        }
+      }
+
+      @media screen and (max-width: 768px) {
+        #containerReg {
+          flex-direction: column;
+          align-content: center;
+          align-items: center;
+          & #main-right {
+            img {
+              margin: 1rem;
+              max-width: 100%;
+            }
+          }
+        }
+      }
+    </style>
+  </head>
+
+  <body>
+    <div id="overlay"></div>
+
+    <header-section></header-section>
+    <div id="containerReg">
+      <div id="main-left">
+        <h2>Бүртгүүлэх</h2>
+        <hr color="red" />
+        <label for="">Нэр</label>
+        <input type="text" placeholder="Нэр" />
+
+        <label for="">Утасны дугаар</label>
+        <input type="number" placeholder="Утасны дугаар" />
+
+        <label for="">И-мэйл</label>
+        <input type="text" placeholder="И-мэйл" />
+        <label for="">Нууц үг</label>
+        <input type="password" placeholder="И-мэйл" />
+        <label for="">Нууц үг давтаж оруулах</label>
+        <input type="password" placeholder="Нууц үг давтаж оруулах" />
+        <p>
+          <strong>
+            Та бүртгүүлснээр дараах боломжийг идлэх боломжтой юм:
+          </strong>
+        </p>
+        <br />
+        <ul>
+          <li>
+            <p>Онцгой урамшуулал, боломжуудыг аваарай</p>
+          </li>
+          <li>
+            <p>Очиж авах эсвэл хүргэлтийн захиалгаа хялбарчлах</p>
+          </li>
+        </ul>
+        <button type="submit">Бүртгүүлэх</button>
+      </div>
+      <div id="main-right">
+        <img src="/assets/burt-img.png" alt="" />
+      </div>
+    </div>
+    <footer-section></footer-section>
+  </body>
+
+  <script>
+    document.addEventListener("DOMContentLoaded", function () {
+      const dialog = document.getElementById("myDialog");
+      window.showDialog = function () {
+        if (dialog) {
+          dialog.show();
+          document.getElementById("overlay").style.display = "block";
+        } else {
+          console.error("Dialog element not found");
+        }
+      };
+
+      window.closeDialog = function () {
+        if (dialog) {
+          dialog.close();
+          document.getElementById("overlay").style.display = "none";
+        } else {
+          console.error("Dialog element not found");
+        }
+      };
+    });
+    function showSidebar() {
+      const sidebar = document.querySelector(".sidebar1");
+      sidebar.style.display = "flex";
+      console.log("nnn");
+      const parent = document.getElementById("side2");
+
+      const newli = document.createElement("li");
+      newli.classList.add("toggle2");
+      newli.addEventListener("click", hideSidebar);
+      newli.innerHTML = ' <i class="fa-solid fa-x"></i>';
+      const oldli = document.querySelector(".toggle");
+      parent.removeChild(oldli);
+      parent.appendChild(newli);
+    }
+    function hideSidebar() {
+      const sidebar = (document.querySelector(".sidebar1").style.display =
+        "none");
+      console.log("nnnn");
+      const parent = document.getElementById("side2");
+      const newli = document.createElement("li");
+      newli.classList.add("toggle");
+      newli.addEventListener("click", showSidebar);
+      newli.innerHTML = ' <i  class="fas fa-bars"></i>';
+      const oldli = document.querySelector(".toggle2");
+      parent.removeChild(oldli);
+      parent.appendChild(newli);
+    }
+  </script>
+</html>

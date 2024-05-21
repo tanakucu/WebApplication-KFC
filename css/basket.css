@@ -1,0 +1,231 @@
+:root {
+  --color-red: #de032a;
+  --color-white: white;
+  --color-bg-grey: rgb(245, 245, 245);
+  --color-text-grey: rgb(152, 152, 152);
+  --color-dark-grey: rgb(26, 26, 26);
+  --color-black: #000000;
+}
+* {
+  font-family: "Poppins", sans-serif;
+  margin: 0;
+  padding: 0;
+}
+/* Deed heseg begin */
+.top {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 30px;
+  & .go-back {
+    background-color: transparent;
+    border: none;
+    cursor: pointer;
+  }
+  & .go-back .back-icon {
+    width: 40px;
+  }
+  & .title {
+    font-size: 24px;
+    margin-right: 40%;
+  }
+}
+/* deed heseg end */
+/* Main begin */
+#big-container {
+  display: grid;
+  grid-template-areas:
+    "section-1 section-1 section-2"
+    "section-3 section-3 section-3";
+  gap: 2rem;
+  & .order-details {
+    grid-area: section-1;
+    margin: 0 2rem;
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    height: 60vh;
+    max-height: 90%;
+    overflow-y: auto;
+    & .products {
+      display: flex;
+      gap: 20px;
+      border-bottom: 3px solid var(--color-bg-grey);
+      border-radius: 5px;
+      padding: 10px;
+      & .product-image {
+        max-width: 100px;
+        max-height: 100px;
+      }
+      & .product-actions {
+        display: flex;
+        flex-direction: row;
+        align-content: center;
+        gap: 10px;
+        margin-top: 0.4rem;
+        & p {
+          color: var(--color-red);
+          font-weight: bold;
+          margin-top: 0;
+        }
+        & .quantity-btn {
+          background-color: var(--color-black);
+          border: none;
+          cursor: pointer;
+          color: var(--color-white);
+          width: 1rem;
+        }
+        & .edit-icon,
+        .delete-icon,
+        .edit,
+        .delete {
+          max-width: 20px;
+          max-height: 20px;
+          border: none;
+        }
+      }
+    }
+  }
+  & .payment {
+    margin: 0 2rem;
+    grid-area: section-2;
+    background-color: var(--color-bg-grey);
+    display: flex;
+    flex-direction: column;
+    padding: 20px;
+    border-radius: 5px;
+    & .paysub {
+      display: flex;
+      justify-content: space-between;
+      & h3 {
+        margin-bottom: 1rem;
+      }
+      & #red {
+        color: var(--color-red);
+        font-size: larger;
+      }
+    }
+    & .coupon {
+      width: 100%;
+      display: flex;
+      & #cpn {
+        width: 70%;
+      }
+      & button {
+        margin-bottom: 1.5rem;
+      }
+    }
+    & input {
+      background-color: var(--color-white);
+      padding: 0.8rem;
+      border-radius: 5px;
+      border: none;
+      margin-bottom: 1rem;
+    }
+    & button {
+      margin: 0.5rem 2rem;
+      padding: 0.5rem;
+      border-radius: 0.3rem;
+      color: var(--color-white);
+      background-color: var(--color-red);
+      border: none;
+    }
+  }
+  & .recommendation {
+    grid-area: section-3;
+    display: flex;
+    flex-direction: column;
+    margin-top: 20px;
+    align-items: center;
+    margin-bottom: 5rem;
+    & #rec {
+      margin-bottom: 2rem;
+    }
+    & #articles {
+      width: 100vw;
+      max-width: 90%;
+      display: flex;
+      overflow: auto;
+      gap: 20px;
+      & .article img {
+        width: 200px;
+      }
+    }
+  }
+}
+/* Product styles */
+.product {
+  display: flex;
+  flex-direction: column;
+  margin-bottom: 20px;
+  position: relative; /* Add position relative to enable absolute positioning of the hover details */
+}
+
+.product img {
+  width: 150px;
+  height: 150px;
+  object-fit: cover;
+  border-radius: 8px;
+  margin-bottom: 10px;
+}
+
+.product h3 {
+  font-size: 1.2rem;
+  margin-bottom: 5px;
+}
+
+.product p {
+  margin-bottom: 5px;
+}
+
+.product .detail-default {
+  display: block;
+}
+
+.product .detail-hover {
+  display: none;
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: rgba(255, 255, 255, 0.6);
+  padding: 10px;
+  border: 1px solid #ddd;
+}
+
+.product:hover .detail-default {
+  display: none;
+}
+
+.product:hover .detail-hover {
+  display: block;
+}
+
+.product .detail-hover button {
+  background: var(--color-red);
+  color: var(--color-white);
+  border: none;
+  margin: 1rem auto;
+  padding: 0.5rem;
+  width: 100%;
+}
+
+.product .detail-hover h4 {
+  margin-top: 1rem;
+}
+
+.product .detail-hover h6 {
+  margin-left: 1rem;
+}
+
+/* Main end*/
+@media only screen and (max-width: 895px) {
+  #big-container {
+    display: grid;
+    grid-template-areas:
+      "section-1 "
+      "section-2"
+      "section-3 ";
+    gap: 2rem;
+  }
+}

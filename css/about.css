@@ -1,0 +1,60 @@
+* {
+  font-family: "Poppins", sans-serif;
+  margin: 0;
+  padding: 0;
+}
+
+.video-section {
+  margin: 0;
+}
+
+#history {
+  margin: 2rem 11rem;
+  & h2 {
+    margin-left: 0;
+  }
+}
+.history-section {
+  display: grid;
+  grid-template-areas: "main-left main-right";
+  margin: 3rem;
+  & #main-left {
+    grid-area: main-left;
+
+    & div {
+      display: flex;
+      /* margin: 2rem; */
+      & img {
+        margin-right: 1rem;
+      }
+      & h3 {
+        margin-left: 4rem;
+        margin-right: 2rem;
+      }
+    }
+  }
+  & #main-right {
+    grid-area: main-right;
+    display: flex;
+    flex-direction: column;
+    & img {
+      margin: 2rem;
+    }
+  }
+}
+/* media query */
+@media only screen and (max-width: 895px) {
+  #history {
+    margin: 1rem 5rem;
+    & h2 {
+      margin-left: 0;
+    }
+  }
+  .history-section {
+    margin: 0.5rem;
+    display: grid;
+    grid-template-areas:
+      "main-left "
+      "main-right";
+  }
+}

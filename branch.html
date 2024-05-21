@@ -1,0 +1,166 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Салбар</title>
+    <!-- for header and footer of page -->
+    <script type="module" src="./components/header.js"></script>
+    <script type="module" src="./components/footer.js"></script>
+    <link rel="stylesheet" href="css/headerFooter.css" />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css"
+      integrity="sha512-SnH5WK+bZxgPHs44uWIX+LLJAJ9/2PkPKZ5QiAj6Ta86w+fsb2TkcmfRyVX3pBnMFcV7oQPJkl9QevSCWr3W6A=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+    />
+    <style>
+      :root {
+        --color-red: #de032a;
+        --color-white: white;
+        --color-bg-grey: rgb(245, 245, 245);
+        --color-text-grey: rgb(152, 152, 152);
+        --color-dark-grey: rgb(26, 26, 26);
+        --color-black: #000000;
+      }
+      * {
+        font-family: "Poppins", sans-serif;
+        margin: 0;
+        padding: 0;
+        text-decoration: none;
+        list-style: none;
+        box-sizing: border-box;
+      }
+      #over-map {
+        background-color: var(--color-text-grey);
+        padding: 10px;
+        text-align: center;
+        position: absolute;
+        top: 4rem;
+        left: 10px;
+        z-index: 1;
+        & div {
+          background-color: var(--color-bg-grey);
+          margin: 10px 0px;
+        }
+      }
+      .containerGM {
+        position: relative;
+      }
+      @media screen and (max-width: 768px) {
+        #over-map {
+          background-color: var(--color-text-grey);
+          padding: 7px;
+          text-align: center;
+          position: absolute;
+          top: 3rem;
+          left: 5px;
+          z-index: 1;
+          & div {
+            background-color: var(--color-bg-grey);
+            margin: 5px 0px;
+          }
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <div id="overlay"></div>
+
+    <header-section></header-section>
+
+    <section class="containerGM">
+      <iframe
+        src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d21393.942502089816!2d106.93605095!3d47.91233905!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x5d969249c3db278b%3A0xa66e9b14b8db7b86!2sNational%20Amusement%20Park!5e0!3m2!1sen!2smn!4v1711950634152!5m2!1sen!2smn"
+        width="100%"
+        height="600"
+        style="border: 0"
+        allowfullscreen=""
+        loading="lazy"
+        referrerpolicy="no-referrer-when-downgrade"
+      ></iframe>
+
+      <div id="over-map">
+        <div>
+          <h6>KFC-БИЗНЕСС ПЛАЗА /Төв номын сан/</h6>
+          <p>10:00-22:30</p>
+        </div>
+        <div>
+          <h6>KFC-Смарт /Өргөө кино театрын эсрэг талд/</h6>
+          <p>10:00-22:30</p>
+        </div>
+        <div>
+          <h6>KFC-Сөүл (Хүүхдийн 100)</h6>
+          <p>10:00-22:30</p>
+        </div>
+        <div>
+          <h6>KFC-Тэнгис /Тэнгис кино театрын хажууд/</h6>
+          <p>10:00-22:30</p>
+        </div>
+        <div>
+          <h6>KFC-Намянжу/(ХӨСҮТ дэргэд)</h6>
+          <p>10:00-22:30</p>
+        </div>
+        <div>
+          <h6>KFC-Энхтайван (24 цагийн салбар)</h6>
+          <p>10:00-22:30</p>
+        </div>
+        <div>
+          <h6>KFC-Хархорин /Хархорин захын буудал/</h6>
+          <p>10:00-22:30</p>
+        </div>
+      </div>
+    </section>
+    <footer-section></footer-section>
+  </body>
+  <script>
+    document.addEventListener("DOMContentLoaded", function () {
+      const dialog = document.getElementById("myDialog");
+      window.showDialog = function () {
+        if (dialog) {
+          dialog.show();
+          document.getElementById("overlay").style.display = "block";
+        } else {
+          console.error("Dialog element not found");
+        }
+      };
+
+      window.closeDialog = function () {
+        if (dialog) {
+          dialog.close();
+          document.getElementById("overlay").style.display = "none";
+        } else {
+          console.error("Dialog element not found");
+        }
+      };
+    });
+    function showSidebar() {
+      const sidebar = document.querySelector(".sidebar1");
+      sidebar.style.display = "flex";
+      console.log("nnn");
+      const parent = document.getElementById("side2");
+
+      const newli = document.createElement("li");
+      newli.classList.add("toggle2");
+      newli.addEventListener("click", hideSidebar);
+      newli.innerHTML = ' <i class="fa-solid fa-x"></i>';
+      const oldli = document.querySelector(".toggle");
+      parent.removeChild(oldli);
+      parent.appendChild(newli);
+    }
+    function hideSidebar() {
+      const sidebar = (document.querySelector(".sidebar1").style.display =
+        "none");
+      console.log("nnnn");
+      const parent = document.getElementById("side2");
+      const newli = document.createElement("li");
+      newli.classList.add("toggle");
+      newli.addEventListener("click", showSidebar);
+      newli.innerHTML = ' <i  class="fas fa-bars"></i>';
+      const oldli = document.querySelector(".toggle2");
+      parent.removeChild(oldli);
+      parent.appendChild(newli);
+    }
+  </script>
+</html>

@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Меню</title>
+    <script type="module" src="./components/header.js"></script>
+    <script type="module" src="./components/footer.js"></script>
+    <link rel="stylesheet" href="css/headerFooter.css" />
+    <link rel="stylesheet" href="css/index.css" />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css"
+      integrity="sha512-SnH5WK+bZxgPHs44uWIX+LLJAJ9/2PkPKZ5QiAj6Ta86w+fsb2TkcmfRyVX3pBnMFcV7oQPJkl9QevSCWr3W6A=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+    />
+    <script type="module" src="./js/products.js"></script>
+  </head>
+  <body>
+    <div id="overlay"></div>
+    <header-section></header-section>
+    <section>
+      <div>
+        <img
+          src="assets/Index Products/adimage1.jpg"
+          alt="Home Image"
+          class="homeimage"
+        />
+      </div>
+    </section>
+    <div class="searchbox">
+      <form action="">
+        <input type="search" placeholder="Бүтээгдэхүүн хайх" id="search" />
+        <button type="submit">
+          <img src="/assets/Index Products/search.png" alt="" />
+        </button>
+      </form>
+    </div>
+    <div id="title"><h2>БҮТЭЭГДЭХҮҮН</h2></div>
+    <div id="product-container">
+      <div id="product-name">
+        <button class="p-name" data-category="ДАН БҮТЭЭГДЭХҮҮН">
+          ДАН БҮТЭЭГДЭХҮҮН
+        </button>
+        <button class="p-name" data-category="МИНИ КОМБО">МИНИ КОМБО</button>
+        <button class="p-name" data-category="СЭТ БҮТЭЭГДЭХҮҮН">
+          СЭТ БҮТЭЭГДЭХҮҮН
+        </button>
+        <button class="p-name" data-category="ӨЕГ БАГЦ">ӨЕГ БАГЦ</button>
+        <button class="p-name" data-category="АРВИН БАГЦ">АРВИН БАГЦ</button>
+        <button class="p-name" data-category="ХАЧИР">ХАЧИР</button>
+        <button class="p-name" data-category="АМТТАН">АМТТАН</button>
+        <button class="p-name" data-category="УНДАА">УНДАА</button>
+      </div>
+
+      <div id="product-desc"></div>
+    </div>
+    <footer-section></footer-section>
+    <script type="module" src="./js/index.js"></script>
+  </body>
+</html>

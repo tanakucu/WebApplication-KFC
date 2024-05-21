@@ -1,0 +1,178 @@
+:root {
+  --color-red: #de032a;
+  --color-white: white;
+  --color-bg-grey: rgb(245, 245, 245);
+  --color-text-grey: rgb(152, 152, 152);
+  --color-dark-grey: rgb(26, 26, 26);
+  --color-black: #000000;
+}
+* {
+  font-family: "Poppins", sans-serif;
+  margin: 0;
+  padding: 0;
+}
+/* showcase img */
+section div img {
+  width: 100vw;
+}
+/* search box */
+.searchbox {
+  height: 50px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: var(--color-bg-grey);
+  & form {
+    align-items: center;
+  }
+  & button {
+    border: none;
+    background: none;
+    position: relative;
+    left: -35px;
+    bottom: -3px;
+    & img {
+      width: 20px;
+    }
+  }
+}
+#search::placeholder {
+  font-size: smaller;
+}
+#search {
+  padding: 2%;
+  border: none;
+  height: 30px;
+  width: 50vw;
+  color: var(--color-black);
+  border-radius: 10px;
+  font-size: larger;
+}
+#title {
+  margin-top: 1.5rem;
+  margin-left: 17.2vw;
+}
+#product-container {
+  display: grid;
+  grid-template-areas: "item-1 item-2 item-2 item-2";
+  gap: 2rem;
+  padding: 0 1rem;
+}
+#product-name {
+  margin: 1.5rem 0;
+  border: none;
+  border-radius: 0;
+  grid-area: item-1;
+  display: flex;
+  flex-direction: column;
+}
+#product-name button {
+  height: 6.2vh;
+  background-color: var(--color-bg-grey);
+  border: none;
+  color: var(--color-black);
+  padding: 0.5rem;
+}
+#product-name button.active {
+  background-color: red;
+  color: white;
+}
+#product-desc {
+  margin: 1.5rem;
+  grid-area: item-2;
+  grid-column: 2 / span 3;
+  flex-wrap: wrap;
+  overflow-y: auto;
+  display: flex;
+  overflow: auto;
+  width: 79vw;
+  height: 48vh;
+  padding: 1rem;
+  padding-top: 0;
+}
+
+#product-desc .detail-default {
+  display: block; /* This is the default visible section */
+}
+
+#product-desc .detail-hover {
+  display: none; /* Initially hidden */
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: rgba(255, 255, 255, 0.6); /* Slightly transparent background */
+  padding: 10px;
+  border: 1px solid #ddd;
+}
+
+#product-desc .box:hover .detail-default {
+  display: none;
+}
+
+#product-desc .box:hover .detail-hover {
+  display: block;
+  margin: 1.4rem;
+  & button {
+    background: var(--color-red);
+    color: var(--color-white);
+    border: none;
+    margin: 1rem auto;
+    padding: 0.5rem;
+    width: 100%;
+  }
+  & h4 {
+    margin-top: 1rem;
+  }
+  & h6 {
+    margin-left: 1rem;
+  }
+}
+
+#product-desc div {
+  padding: 1rem 1.5rem;
+  background-color: rgb(216, 216, 216);
+  margin: 1rem;
+  margin-top: 0;
+  position: relative;
+  border: 1px solid #ddd; /* Optional: for visual differentiation */
+}
+#product-desc div img {
+  width: 18vw;
+}
+#product-desc div h5 {
+  margin: 0.5rem;
+}
+#product-desc div h4 {
+  color: var(--color-red);
+  margin-left: 0.5rem;
+}
+
+.detail {
+  display: none;
+}
+
+/* Media query */
+@media screen and (max-width: 610px) {
+  #product-container {
+    display: grid;
+    grid-template-areas:
+      "item-1"
+      "item-2";
+    gap: 2rem;
+    padding: 0 1rem;
+    & #product-name {
+      display: flex;
+      flex-direction: row;
+      overflow-x: auto;
+      width: 90vw;
+    }
+    & #product-desc {
+      margin: 1.5rem;
+      grid-area: item-2;
+      display: flex;
+      flex-wrap: wrap;
+      overflow-y: auto;
+    }
+  }
+}
