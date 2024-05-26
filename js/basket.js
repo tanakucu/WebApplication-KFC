@@ -202,7 +202,7 @@ const checkBtn = document.querySelector(".check-btn");
 
 checkBtn.addEventListener("click", () => {
   const couponCode = couponInput.value.trim();
-  if (couponCode === "TA234A") {
+  if (couponCode === "coupon") {
     applyDiscount(0.2);
   } else {
     alert("Хүчингүй купон код");
