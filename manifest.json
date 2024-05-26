@@ -1,22 +1,16 @@
 {
-    "apiVersion": "v1",
-    "kind": "Pod",
-    "metadata": {
-      "name": "kfc-pod"
-    },
-    "spec": {
-      "containers": [
-        {
-          "name": "kfc",
-          "image": "your-kfc-image-here",
-          "ports": [
-            {
-              "containerPort": 80,
-              "protocol": "TCP"
-            }
-          ]
-        }
-      ]
-    }
+    "name": "KFC",
+    "short_name": "KFC",
+    "start_url": ".",
+    "display": "standalone",
+    "background_color": "#2A3443",
+    "description": "KFC webapp",
+    "theme_color": "#2A3443",
+    "icons": [
+      {
+        "src": "assets/kfc1-img1.png",
+        "sizes": "512X512",
+        "type": "image/png"
+      }
+    ]
   }
-  
