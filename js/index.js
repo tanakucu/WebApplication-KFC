@@ -28,6 +28,7 @@ document.addEventListener("DOMContentLoaded", async function () {
   // const data = await fetchData(
   //   "https://api.jsonbin.io/v3/b/66273a04e41b4d34e4e8c1a9"
   // );
+  
   const data = await fetchData('https://kfc-backend-4wkv.onrender.com/api/products');
 
   function updateURL(category) {
