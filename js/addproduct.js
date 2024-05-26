@@ -9,7 +9,7 @@ document.addEventListener('DOMContentLoaded', () => {
         });
 
         try {
-            const response = await fetch('http://localhost:3000/api/products', {
+            const response = await fetch('https://kfc-backend-4wkv.onrender.com/api/products', {
                 method: 'POST',
                 headers: {
                     'Content-Type': 'application/json'

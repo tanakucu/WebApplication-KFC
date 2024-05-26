@@ -68,7 +68,7 @@ function filterProducts(category, data) {
   }
 }
 async function initializePage() {
-  let data = await fetchData('http://localhost:3000/api/products');
+  let data = await fetchData('https://kfc-backend-4wkv.onrender.com/api/products');
 
   renderProducts(data);
 
@@ -78,7 +78,7 @@ async function initializePage() {
   categoryButtons.forEach((button) => {
     button.addEventListener("click", async function (event) {
       category = button.textContent.trim();
-      const filteredData = await fetchData(`http://localhost:3000/api/products?category=${category}`);
+      const filteredData = await fetchData(`https://kfc-backend-4wkv.onrender.com/api/products?category=${category}`);
       renderProducts(filteredData);
     });
   });
@@ -88,7 +88,7 @@ async function initializePage() {
   searchInput.addEventListener("input", async function (event) {
     const searchText = event.target.value.trim().toLowerCase();
     if (searchText !== "") {
-      const searchData = await fetchData(`http://localhost:3000/api/products?search=${searchText}`);
+      const searchData = await fetchData(`https://kfc-backend-4wkv.onrender.com/api/products?search=${searchText}`);
       renderProducts(searchData);
     } else {
       filterProducts(category, data);
