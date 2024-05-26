@@ -14,7 +14,7 @@ class HeaderSection extends HTMLElement {
         <ul id="side2">
           <li>
             <a href="index.html"
-              ><img src="assets/logo.png" class="logo"
+              ><img src="assets/logo.png" alt="KFC-Logo" class="logo"
             /></a>
           </li>
           <li class="hideonmobile"><a class="navbar-text" href="index.html">Меню</a></li>
@@ -32,7 +32,7 @@ class HeaderSection extends HTMLElement {
           </li>
           <li class="hideonmobile">
             <button class="navbar-text" onclick="showDialog()">
-              <img src="assets/login.png" alt="login" class="login-icon" />
+              <img src="assets/login.png" alt="login-icon" class="login-icon" />
               Нэвтрэх
             </button>
           </li >
@@ -69,7 +69,7 @@ class HeaderSection extends HTMLElement {
       </li>
       <li>
         <button class="navbar-text" onclick="showDialog()">
-          <img src="assets/login.png" alt="login" class="login-icon" />
+          <img src="assets/login.png" alt="login-icon" class="login-icon" />
           Нэвтрэх
         </button>
       </li>

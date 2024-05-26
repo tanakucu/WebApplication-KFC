@@ -252,7 +252,7 @@ class BasketComponent extends HTMLElement {
             const detailhover = document.createElement('div');
             detailhover.classList.add('detail-hover');
             const desc = document.createElement('h6');
-            desc.textContent = product.desc; // Assuming you have a desc field in your product data
+            desc.textContent = product.desc;
             detailhover.appendChild(productName);
             detailhover.appendChild(desc);
             detailhover.appendChild(productPrice);

@@ -19,7 +19,6 @@ document.addEventListener("DOMContentLoaded", function () {
   };
 });
 
-// showSidebar begin
 function showSidebar() {
   const sidebar = document.querySelector(".sidebar1");
   sidebar.style.display = "flex";
@@ -34,9 +33,6 @@ function showSidebar() {
   parent.removeChild(oldli);
   parent.appendChild(newli);
 }
-// showSidebar end
-
-// hideSidebar begin
 function hideSidebar() {
   const sidebar = (document.querySelector(".sidebar1").style.display = "none");
   console.log("nnnn");
@@ -48,5 +44,4 @@ function hideSidebar() {
   const oldli = document.querySelector(".toggle2");
   parent.removeChild(oldli);
   parent.appendChild(newli);
-  // hideSidebar end
 }

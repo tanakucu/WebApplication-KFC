@@ -37,13 +37,13 @@ export function renderProducts(products) {
 
     const detailhover = document.createElement("div");
     detailhover.classList.add("detail-hover");
-    const name2 = document.createElement("h5");
+    const name2 = document.createElement("h3");
     name2.textContent = product.name;
     detailhover.appendChild(name2);
-    const desc = document.createElement("h6");
+    const desc = document.createElement("h4");
     desc.textContent = product.desc;
     detailhover.appendChild(desc);
-    const price2 = document.createElement("h4");
+    const price2 = document.createElement("h5");
     price2.textContent = product.price + " ₮";
     detailhover.appendChild(price2);
     const button = document.createElement("button");
@@ -67,38 +67,31 @@ function filterProducts(category, data) {
     renderProducts(filteredData);
   }
 }
-
 async function initializePage() {
-  const data = await fetchData(
-    "https://api.jsonbin.io/v3/b/66273a04e41b4d34e4e8c1a9"
-  );
+  let data = await fetchData('http://localhost:3000/api/products');
 
-  renderProducts(data.record.products);
+  renderProducts(data);
 
   let category = "All";
 
   const categoryButtons = document.querySelectorAll(".p-name");
   categoryButtons.forEach((button) => {
-    button.addEventListener("click", function (event) {
+    button.addEventListener("click", async function (event) {
       category = button.textContent.trim();
-
-      filterProducts(category, data.record.products);
+      const filteredData = await fetchData(`http://localhost:3000/api/products?category=${category}`);
+      renderProducts(filteredData);
     });
   });
 
   const searchInput = document.getElementById("search");
 
-  searchInput.addEventListener("input", function (event) {
+  searchInput.addEventListener("input", async function (event) {
     const searchText = event.target.value.trim().toLowerCase();
-
-    const filteredProducts = data.record.products.filter((product) =>
-      product.name.toLowerCase().includes(searchText)
-    );
-
     if (searchText !== "") {
-      filterProducts(category, filteredProducts);
+      const searchData = await fetchData(`http://localhost:3000/api/products?search=${searchText}`);
+      renderProducts(searchData);
     } else {
-      filterProducts(category, data.record.products);
+      filterProducts(category, data);
     }
   });
 }

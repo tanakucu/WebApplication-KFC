@@ -8,7 +8,7 @@
   --color-gray1: #e8e8e8;
 }
 * {
-  font-family: "Poppins", sans-serif;
+  font-family: "Inter", sans-serif;
   margin: 0;
   padding: 0;
   text-decoration: none;
@@ -191,7 +191,7 @@ footer {
       background-color: var(--color-white);
       color: var(--color-text-grey);
       font-size: larger;
-      font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+      font-family: "Inter", sans-serif;
       border: none;
     }
 
@@ -257,6 +257,10 @@ footer {
       grid-column: 1 / span 2;
     }
   }
+}
+.copyright {
+  font-size: 1.1em;
+  color: #666;
 }
 @media screen and (max-width: 549px) {
   .sidebar ul {

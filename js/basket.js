@@ -75,7 +75,7 @@ document.addEventListener("DOMContentLoaded", function () {
       const productInfo = document.createElement("div");
       productInfo.classList.add("product-info");
 
-      const productName = document.createElement("h2");
+      const productName = document.createElement("h4");
       productName.textContent = product.name;
 
       const productDesc = document.createElement("p");

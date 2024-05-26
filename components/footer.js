@@ -51,6 +51,7 @@ class FooterSection extends HTMLElement {
       <input class="form-feedback" type="text" placeholder="Санал хүсэлт" />
       <button id="button-footer">Илгээх</button>
     </div>
+    <p class="copyright">&copy; 2024 KFC. All rights reserved.</p>
   </footer>
 </body>
           `;
