@@ -8,6 +8,7 @@
     <script type="module" src="./components/footer.js"></script>
     <link rel="stylesheet" href="css/headerFooter.css" />
     <link rel="stylesheet" href="css/index.css" />
+    <link rel="manifest" href="manifest.json" />
     <link
       rel="stylesheet"
       href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css"
@@ -37,7 +38,7 @@
       <form action="">
         <input type="search" placeholder="Бүтээгдэхүүн хайх" id="search" />
         <button type="submit" aria-label="Search">
-          <img src="/assets/Index Products/search.png" alt="Search" />
+          <img src="assets/Index Products/search.png" alt="Search" />
         </button>
       </form>
     </div>
@@ -62,5 +63,57 @@
     </div>
     <footer-section></footer-section>
     <script type="module" src="./js/index.js"></script>
+
+    <script>
+      // This is the "Offline page" service worker
+
+      importScripts(
+        "https://storage.googleapis.com/workbox-cdn/releases/5.1.2/workbox-sw.js"
+      );
+
+      const CACHE = "pwabuilder-page";
+
+      // TODO: replace the following with the correct offline fallback page i.e.: const offlineFallbackPage = "offline.html";
+      const offlineFallbackPage = "ToDo-replace-this-name.html";
+
+      self.addEventListener("message", (event) => {
+        if (event.data && event.data.type === "SKIP_WAITING") {
+          self.skipWaiting();
+        }
+      });
+
+      self.addEventListener("install", async (event) => {
+        event.waitUntil(
+          caches.open(CACHE).then((cache) => cache.add(offlineFallbackPage))
+        );
+      });
+
+      if (workbox.navigationPreload.isSupported()) {
+        workbox.navigationPreload.enable();
+      }
+
+      self.addEventListener("fetch", (event) => {
+        if (event.request.mode === "navigate") {
+          event.respondWith(
+            (async () => {
+              try {
+                const preloadResp = await event.preloadResponse;
+
+                if (preloadResp) {
+                  return preloadResp;
+                }
+
+                const networkResp = await fetch(event.request);
+                return networkResp;
+              } catch (error) {
+                const cache = await caches.open(CACHE);
+                const cachedResp = await cache.match(offlineFallbackPage);
+                return cachedResp;
+              }
+            })()
+          );
+        }
+      });
+    </script>
   </body>
 </html>

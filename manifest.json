@@ -1,0 +1,22 @@
+{
+    "apiVersion": "v1",
+    "kind": "Pod",
+    "metadata": {
+      "name": "kfc-pod"
+    },
+    "spec": {
+      "containers": [
+        {
+          "name": "kfc",
+          "image": "your-kfc-image-here",
+          "ports": [
+            {
+              "containerPort": 80,
+              "protocol": "TCP"
+            }
+          ]
+        }
+      ]
+    }
+  }
+  
