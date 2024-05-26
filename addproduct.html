@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Add Product</title>
+    <link rel="stylesheet" href="css/headerFooter.css" />
+    <link rel="stylesheet" href="css/addproduct.css" />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css"
+      integrity="sha512-SnH5WK+bZxgPHs44uWIX+LLJAJ9/2PkPKZ5QiAj6Ta86w+fsb2TkcmfRyVX3pBnMFcV7oQPJkl9QevSCWr3W6A=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+    />
+    <link
+      rel="stylesheet"
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap"
+    />
+  </head>
+
+  <body>
+    <div id="overlay"></div>
+    <header-section></header-section>
+    <div class="container">
+      <h2>Бүтээгдэхүүн нэмэх</h2>
+      <form id="add-product-form">
+        <div>
+          <label for="name">Нэр:</label>
+          <input type="text" id="name" name="name" required />
+        </div>
+        <div>
+          <label for="category">Төрөл:</label>
+          <input type="text" id="category" name="category" required />
+        </div>
+        <div>
+          <label for="price">Үнэ:</label>
+          <input
+            type="number"
+            id="price"
+            name="price"
+            min="0"
+            step="0.01"
+            required
+          />
+        </div>
+        <div>
+          <label for="image_path">Зурагны path:</label>
+          <input type="text" id="image" name="image" required />
+        </div>
+        <div>
+          <label for="description">Тайлбар:</label>
+          <textarea id="description" name="description" required></textarea>
+        </div>
+        <button type="submit">нэмэх</button>
+      </form>
+    </div>
+    <footer-section></footer-section>
+    <script type="module" src="./components/header.js"></script>
+    <script type="module" src="./components/footer.js"></script>
+    <script type="module" src="./js/addproduct.js"></script>
+  </body>
+</html>
