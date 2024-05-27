@@ -4,11 +4,87 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Shopping Cart</title>
+    <script type="module" src="./components/header.js"></script>
+    <script type="module" src="./components/footer.js"></script>
+    <link rel="stylesheet" href="css/headerFooter.css" />
     <link rel="stylesheet" href="css/basket.css" />
   </head>
   <body>
     <header-section></header-section>
-    <basket-component></basket-component>
+    <basket-component>
+      <template id="basket-template">
+        <style>
+          @import url("css/basket.css");
+
+          :host {
+            --background-color: var(--default-background-color, #fff);
+            --text-color: var(--default-text-color, #000);
+            display: block;
+            background-color: var(--background-color);
+            color: var(--text-color);
+          }
+        </style>
+        <div id="overlay"></div>
+        <div class="top">
+          <button class="go-back">
+            <a href="/index.html">
+              <img
+                src="assets/go-back.png"
+                alt="Go Back button"
+                class="back-icon"
+              />
+            </a>
+          </button>
+          <h1 class="title">
+            <slot name="title">Сагсан дахь бүтээгдэхүүнүүд</slot>
+          </h1>
+        </div>
+        <section id="big-container">
+          <section class="order-details">
+            <div class="products-container"></div>
+          </section>
+          <section class="payment">
+            <div class="paysub">
+              <h3>Барааны үнэ:</h3>
+              <h3 id="prod-price">0₮</h3>
+            </div>
+            <div class="taxisub">
+              <h3>Хүргэлтийн үнэ:</h3>
+              <h3>3000₮</h3>
+            </div>
+            <div class="coupon">
+              <input id="c" type="text" placeholder="Coupon Code" />
+              <button class="check-btn">Шалгах</button>
+            </div>
+            <input type="text" placeholder="Address" />
+            <input type="tel" placeholder="Phone Number" />
+            <div class="totalpaysub">
+              <h3>Нийт үнэ:</h3>
+              <h3 id="total-price">0₮</h3>
+            </div>
+            <button class="add-products">Бүтээгдэхүүн нэмэх</button>
+            <button class="order-verify">Захиалга баталгаажуулах</button>
+          </section>
+          <!-- <section class="recommendation">
+            <div id="rec">
+              <h2>Санал болгох бүтээгдэхүүнүүд</h2>
+            </div>
+            <div class="products-container" id="recommended-products"></div>
+          </section> -->
+          <section class="recommendation">
+            <div id="rec">
+              <h2>Санал болгох бүтээгдэхүүнүүд</h2>
+            </div>
+            <div id="articles">
+              <article class="article">
+                <img src="assets/article-img.png" alt="Article Image" />
+                <h3>Коулсло</h3>
+              </article>
+            </div>
+          </section>
+        </section>
+      </template>
+    </basket-component>
     <footer-section></footer-section>
     <script type="module" src="./components/basket-component.js"></script>
   </body>

@@ -7,11 +7,20 @@
 .video-section {
   margin: 0;
 }
-
+.about-section {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+  padding: 100px;
+}
 .history-section {
   padding: 60px;
   display: grid;
-  grid-template-columns: 50px 50px 150px;
+  grid-template-columns: 100px 100px 300px;
   grid-gap: 20px;
   justify-content: center;
+}
+.images {
+  display: flex;
+  flex-direction: column;
 }

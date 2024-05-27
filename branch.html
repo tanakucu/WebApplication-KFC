@@ -4,6 +4,9 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Салбар</title>
+    <!-- for header and footer of page -->
+    <script type="module" src="./components/header.js"></script>
+    <script type="module" src="./components/footer.js"></script>
     <link rel="stylesheet" href="css/headerFooter.css" />
     <link
       rel="stylesheet"
@@ -22,7 +25,7 @@
         --color-black: #000000;
       }
       * {
-        font-family: "Inter", sans-serif;
+        font-family: "Poppins", sans-serif;
         margin: 0;
         padding: 0;
         text-decoration: none;
@@ -31,6 +34,10 @@
       }
       #over-map {
         background-color: var(--color-text-grey);
+        & .red {
+          background-color: red;
+          color: var(--color-white);
+        }
         padding: 10px;
         text-align: center;
         position: absolute;
@@ -40,6 +47,8 @@
         & div {
           background-color: var(--color-bg-grey);
           margin: 10px 0px;
+          cursor: pointer;
+          padding: 0.5rem;
         }
       }
       .containerGM {
@@ -68,49 +77,147 @@
     <header-section></header-section>
 
     <section class="containerGM">
-      <iframe
-        src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d21393.942502089816!2d106.93605095!3d47.91233905!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x5d969249c3db278b%3A0xa66e9b14b8db7b86!2sNational%20Amusement%20Park!5e0!3m2!1sen!2smn!4v1711950634152!5m2!1sen!2smn"
-        width="100%"
-        height="600"
-        style="border: 0"
-        allowfullscreen=""
-        loading="lazy"
-        referrerpolicy="no-referrer-when-downgrade"
-      ></iframe>
-
+      <div id="content">
+        <iframe
+          src="https://www.google.com/maps/embed?pb=!1m14!1m12!1m3!1d26318.901933719506!2d106.9120541933379!3d47.91982767640014!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!5e0!3m2!1sen!2smn!4v1716112422618!5m2!1sen!2smn"
+          width="100%"
+          height="600"
+          style="border: 0"
+          allowfullscreen=""
+          loading="lazy"
+          referrerpolicy="no-referrer-when-downgrade"
+        ></iframe>
+      </div>
       <div id="over-map">
-        <div>
-          <h6>KFC-БИЗНЕСС ПЛАЗА /Төв номын сан/</h6>
+        <div class="box" id="div1">
+          <h6>KFC-БИЗНЕСС ПЛАЗА (Төв номын сан)</h6>
           <p>10:00-22:30</p>
         </div>
-        <div>
-          <h6>KFC-Смарт /Өргөө кино театрын эсрэг талд/</h6>
+        <div class="box" id="div2">
+          <h6>KFC-Смарт (Өргөө кино театрын эсрэг талд)</h6>
           <p>10:00-22:30</p>
         </div>
-        <div>
+        <div class="box" id="div3">
           <h6>KFC-Сөүл (Хүүхдийн 100)</h6>
           <p>10:00-22:30</p>
         </div>
-        <div>
-          <h6>KFC-Тэнгис /Тэнгис кино театрын хажууд/</h6>
+        <div class="box" id="div4">
+          <h6>KFC-Тэнгис (Тэнгис кино театрын хажууд)</h6>
           <p>10:00-22:30</p>
         </div>
-        <div>
-          <h6>KFC-Намянжу/(ХӨСҮТ дэргэд)</h6>
+        <div class="box" id="div5">
+          <h6>KFC-Намянжу (ХӨСҮТ дэргэд)</h6>
           <p>10:00-22:30</p>
         </div>
-        <div>
+        <div class="box" id="div6">
           <h6>KFC-Энхтайван (24 цагийн салбар)</h6>
           <p>10:00-22:30</p>
         </div>
-        <div>
-          <h6>KFC-Хархорин /Хархорин захын буудал/</h6>
+        <div class="box" id="div7">
+          <h6>KFC-Хархорин (Хархорин захын буудал)</h6>
           <p>10:00-22:30</p>
         </div>
       </div>
     </section>
     <footer-section></footer-section>
   </body>
-  <script type="module" src="./components/header.js"></script>
-  <script type="module" src="./components/footer.js"></script>
+  <script>
+    document.addEventListener("DOMContentLoaded", (event) => {
+      const boxes = document.querySelectorAll(".box");
+      let activeBox = null;
+
+      boxes.forEach((box) => {
+        box.addEventListener("click", () => {
+          if (activeBox) {
+            activeBox.classList.remove("red");
+          }
+          box.classList.add("red");
+          activeBox = box;
+          const content = document.getElementById("content");
+          switch (box.id) {
+            case "div1":
+              content.innerHTML =
+                '<iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d21392.602655348554!2d106.91263675689692!3d47.91557982814178!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x5d96924f35c671e7%3A0x950ee013be48d0d!2sKFC!5e0!3m2!1sen!2smn!4v1716113063222!5m2!1sen!2smn" width=100% height="600" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>';
+              break;
+            case "div2":
+              content.innerHTML =
+                '<iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2673.7262912539327!2d106.87244430133845!3d47.92233328275692!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x5d9692e8b94b8aab%3A0xc8271e9cd4b16fa7!2sKFC!5e0!3m2!1sen!2smn!4v1716112515682!5m2!1sen!2smn" width=100% height="600" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>';
+              break;
+            case "div3":
+              content.innerHTML =
+                '<iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d21392.898465910923!2d106.85878539721931!3d47.91486434532136!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x5d9692fcb1a83e5b%3A0x6dca81f08e9d87cf!2sKFC!5e0!3m2!1sen!2smn!4v1716112694709!5m2!1sen!2smn" width=100% height="600" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>';
+              break;
+            case "div4":
+              content.innerHTML =
+                '<iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d21318.888133369404!2d106.8588777490844!3d47.914856085703875!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x5d9692594af5ecbb%3A0xee8dcbeadffa487!2sKFC!5e0!3m2!1sen!2smn!4v1716112758750!5m2!1sen!2smn" width=100% height="600" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>';
+              break;
+            case "div5":
+              content.innerHTML =
+                '<iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d21319.573101139158!2d106.90737537804048!3d47.91319355752757!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x5d9692242216cf7f%3A0xee5cc9580218151e!2sKFC!5e0!3m2!1sen!2smn!4v1716112821212!5m2!1sen!2smn" width=100% height="600" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>';
+              break;
+            case "div6":
+              content.innerHTML =
+                '<iframe src="https://www.google.com/maps/embed?pb=!1m14!1m8!1m3!1d21397.87206285643!2d106.9280062!3d47.9028334!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x5d9693cd373b0925%3A0x67ebb3e5f4408374!2sKFC!5e0!3m2!1sen!2smn!4v1716113010744!5m2!1sen!2smn" width=100% height="600" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>';
+              break;
+            case "div7":
+              content.innerHTML =
+                '<iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d21397.441537884148!2d106.8240503898599!3d47.90387491405933!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x5d9692e8914ae905%3A0x6637e84d75552fda!2sKFC!5e0!3m2!1sen!2smn!4v1716112947335!5m2!1sen!2smn" width=100% height="600" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>';
+              break;
+            default:
+              content.innerHTML = "Unknown Div";
+              break;
+          }
+        });
+      });
+    });
+
+    //dialogue
+    document.addEventListener("DOMContentLoaded", function () {
+      const dialog = document.getElementById("myDialog");
+      window.showDialog = function () {
+        if (dialog) {
+          dialog.show();
+          document.getElementById("overlay").style.display = "block";
+        } else {
+          console.error("Dialog element not found");
+        }
+      };
+
+      window.closeDialog = function () {
+        if (dialog) {
+          dialog.close();
+          document.getElementById("overlay").style.display = "none";
+        } else {
+          console.error("Dialog element not found");
+        }
+      };
+    });
+    function showSidebar() {
+      const sidebar = document.querySelector(".sidebar1");
+      sidebar.style.display = "flex";
+      console.log("nnn");
+      const parent = document.getElementById("side2");
+
+      const newli = document.createElement("li");
+      newli.classList.add("toggle2");
+      newli.addEventListener("click", hideSidebar);
+      newli.innerHTML = ' <i class="fa-solid fa-x"></i>';
+      const oldli = document.querySelector(".toggle");
+      parent.removeChild(oldli);
+      parent.appendChild(newli);
+    }
+    function hideSidebar() {
+      const sidebar = (document.querySelector(".sidebar1").style.display =
+        "none");
+      console.log("nnnn");
+      const parent = document.getElementById("side2");
+      const newli = document.createElement("li");
+      newli.classList.add("toggle");
+      newli.addEventListener("click", showSidebar);
+      newli.innerHTML = ' <i  class="fas fa-bars"></i>';
+      const oldli = document.querySelector(".toggle2");
+      parent.removeChild(oldli);
+      parent.appendChild(newli);
+    }
+  </script>
 </html>
